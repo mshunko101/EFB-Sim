@@ -1,0 +1,33 @@
+﻿REGEDIT
+; Возможно, этот файл .REG используется программой установки.
+;   Если программа SETUP недоступна, записи, расположенные ниже, будут зарегистрированы
+;   в InitInstance автоматически с вызовом в
+;   CWinApp::RegisterShellFileTypes и COleObjectFactory::UpdateRegistryAll.
+
+HKEY_CLASSES_ROOT\.efbsimproj = EFBSim.Document
+HKEY_CLASSES_ROOT\EFBSim.Document\shell\open\command = EFB-Sim.EXE %1
+HKEY_CLASSES_ROOT\EFBSim.Document\shell\open\ddeexec = [open("%1")]
+HKEY_CLASSES_ROOT\EFBSim.Document\shell\open\ddeexec\application = EFB-Sim
+    ; примечание: приложение необязательно
+    ;  (по умолчанию для имени приложения в команде)
+
+HKEY_CLASSES_ROOT\EFBSim.Document = EFB-Sim.Document
+
+
+HKEY_CLASSES_ROOT\EFBSim.Document\protocol\StdFileEditing\server = EFB-Sim.EXE
+HKEY_CLASSES_ROOT\EFBSim.Document\protocol\StdFileEditing\verb\0 = &Edit
+HKEY_CLASSES_ROOT\EFBSim.Document\Insertable =
+HKEY_CLASSES_ROOT\EFBSim.Document\CLSID = {01bf4459-b9b1-42c0-a8c1-e39662bbcb85}
+
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85} = EFB-Sim.Document
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\DefaultIcon = EFB-Sim.EXE,1
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\LocalServer32 = EFB-Sim.EXE
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\ProgId = EFBSim.Document
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\MiscStatus = 32
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\AuxUserType\3 = EFB-Sim
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\AuxUserType\2 = EFB-Sim
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\Insertable =
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\verb\1 = &Open,0,2
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\verb\0 = &Edit,0,2
+HKEY_CLASSES_ROOT\CLSID\{01bf4459-b9b1-42c0-a8c1-e39662bbcb85}\InprocHandler32 = ole32.dll
+

@@ -1,0 +1,69 @@
+﻿// EFBSimHandlers.idl: источник языка IDL для EFB-SimHandlers
+//
+
+// Этот файл будет обработан средством MIDL для
+// создание библиотеки типов (EFBSimHandlers.tlb) и кода маршалирования.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(832ba926-8022-4c0a-8a3b-48cd793685a0),
+	pointer_default(unique)
+]
+interface IPreview : IUnknown
+{
+};
+
+[
+	object,
+	uuid(e9e2fddc-7237-4b7e-8d2d-52f3bf4333d0),
+	pointer_default(unique)
+]
+interface IThumbnail : IUnknown
+{
+};
+
+[
+	object,
+	uuid(20b06354-7057-4dd1-bf18-ab91c8d45916),
+	pointer_default(unique)
+]
+interface ISearch : IUnknown
+{
+};
+
+[
+	uuid(2a99dec3-1dc4-4ec4-a39e-7996df38ce1f),
+	version(1.0),
+]
+library EFBSimHandlersLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(13d45e4b-7a9c-473e-a3b7-25e9737e6c40)
+	]
+	coclass Preview
+	{
+		[default] interface IPreviewHandler;
+	};
+	[
+		uuid(f6ef37cf-08a3-4521-b1c3-1295a9ceeeba)
+	]
+	coclass Thumbnail
+	{
+		[default] interface IThumbnailProvider;
+	};
+	[
+		uuid(81e8e2fe-e74d-4123-bb70-0bf54ebd7940)
+	]
+	coclass Search
+	{
+		[default] interface IFilter;
+	};
+};
+
+import "shobjidl.idl";
+import "thumbcache.idl";
+import "filter.idl";
