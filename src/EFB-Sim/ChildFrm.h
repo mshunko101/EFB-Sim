@@ -23,7 +23,8 @@ public:
 	public:
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-
+	virtual void OnUpdateFrameMenu(BOOL bActivate, CWnd* pActivateWnd, HMENU hMenuAlt) override;
+	virtual BOOL LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd, CCreateContext* pContext) override;
 // Реализация
 public:
 	virtual ~CChildFrame();
@@ -35,4 +36,6 @@ public:
 // Созданные функции схемы сообщений
 protected:
 	DECLARE_MESSAGE_MAP()
+
+	UINT m_nIDToolbar1;
 };

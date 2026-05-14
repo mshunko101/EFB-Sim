@@ -5,7 +5,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "EFB-Sim.h"
-
+#include "MainFrm.h"
 #include "ChildFrm.h"
 
 #ifdef _DEBUG
@@ -22,6 +22,7 @@ END_MESSAGE_MAP()
 // Создание или уничтожение CChildFrame
 
 CChildFrame::CChildFrame() noexcept
+	:m_nIDToolbar1(IDR_SCHEME)
 {
 	// TODO: добавьте код инициализации члена
 }
@@ -50,6 +51,23 @@ BOOL CChildFrame::PreCreateWindow(CREATESTRUCT& cs)
 	return TRUE;
 }
 
+void CChildFrame::OnUpdateFrameMenu(BOOL bActivate, CWnd* pActivateWnd, HMENU hMenuAlt)
+{
+	CMainFrame* pFrame = static_cast<CMainFrame*>(GetMDIFrame());
+
+	if (bActivate)
+		pFrame->ShowToolbar(m_nIDToolbar1);
+	else
+		pFrame->HideToolbar(m_nIDToolbar1);
+
+	CMDIChildWnd::OnUpdateFrameMenu(bActivate, pActivateWnd, hMenuAlt);
+}
+
+BOOL CChildFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentWnd, CCreateContext* pContext)
+{ 
+
+	return CMDIChildWnd::LoadFrame(nIDResource, dwDefaultStyle, pParentWnd, pContext);
+}
 // Диагностика CChildFrame
 
 #ifdef _DEBUG

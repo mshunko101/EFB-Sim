@@ -25,6 +25,7 @@ public:
 // Переопределение
 protected:
 	virtual COleServerItem* OnGetEmbeddedItem();
+	afx_msg void OnUpdateCommand(CCmdUI* pCmdUI);
 public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);

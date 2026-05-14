@@ -20,6 +20,8 @@ public:
 public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
+	BOOL HideToolbar(UINT nIDToolbar);
+	BOOL ShowToolbar(UINT nIDToolbar);
 // Реализация
 public:
 	virtual ~CMainFrame();
@@ -31,7 +33,7 @@ public:
 protected:  // встроенные члены панели элементов управления
 	CToolBar          m_wndToolBar;
 	CStatusBar        m_wndStatusBar;
-
+	CMap<UINT, UINT, CToolBar*, CToolBar*> m_toolbars;
 // Созданные функции схемы сообщений
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

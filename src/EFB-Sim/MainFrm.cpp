@@ -37,6 +37,7 @@ CMainFrame::CMainFrame() noexcept
 
 CMainFrame::~CMainFrame()
 {
+	// TODO : Add destroyer for TOOLBARS
 }
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -76,6 +77,53 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 
 	cs.style = WS_OVERLAPPED | WS_CAPTION | FWS_ADDTOTITLE
 		 | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_MAXIMIZE | WS_SYSMENU;
+
+	return TRUE;
+}
+
+BOOL CMainFrame::ShowToolbar(UINT nIDToolbar)
+{
+	CToolBar* pToolBar = nullptr;
+	auto c = m_toolbars.Lookup(nIDToolbar, pToolBar);
+	if (!pToolBar)
+	{
+		CToolBar* pBar = new CToolBar;
+		if (!pBar)
+			return FALSE;
+
+		if (!pBar->CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) || !pBar->LoadToolBar(nIDToolbar))
+		{
+			delete pBar;
+			return FALSE;
+		}
+		m_toolbars.SetAt(nIDToolbar, pBar);
+		pToolBar = pBar;
+	}
+	else
+	{ 
+		pToolBar->ShowWindow(SW_SHOW);
+	}
+	if (pToolBar != nullptr)
+	{
+		pToolBar->EnableDocking(CBRS_ALIGN_ANY); 
+		DockControlBar(pToolBar);
+	}
+	return TRUE;
+}
+
+BOOL CMainFrame::HideToolbar(UINT nIDToolbar)
+{
+	CToolBar* pToolBar = nullptr;
+	auto c = m_toolbars.Lookup(nIDToolbar, pToolBar);
+
+	if (pToolBar == nullptr)
+	{
+		return FALSE;
+	}
+
+	pToolBar->ShowWindow(SW_HIDE);
+
+	RecalcLayout();
 
 	return TRUE;
 }
