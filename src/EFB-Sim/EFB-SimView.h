@@ -5,6 +5,7 @@
 #pragma once
 
 class CEFBSimCntrItem;
+class CEFBSimDoc;
 
 class CEFBSimView : public CView
 {

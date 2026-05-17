@@ -187,8 +187,13 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CCalcItemView.h" />
+    <ClInclude Include="CGISView.h" />
     <ClInclude Include="ChildFrm.h" />
     <ClInclude Include="CntrItem.h" />
+    <ClInclude Include="CProjectTreeView.h" />
+    <ClInclude Include="CWorkspaceDoc.h" />
+    <ClInclude Include="CWorkspaceView.h" />
     <ClInclude Include="EFB-Sim.h" />
     <ClInclude Include="EFB-SimDoc.h" />
     <ClInclude Include="EFB-SimView.h" />
@@ -201,8 +206,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CCalcItemView.cpp" />
+    <ClCompile Include="CGISView.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
     <ClCompile Include="CntrItem.cpp" />
+    <ClCompile Include="CProjectTreeView.cpp" />
+    <ClCompile Include="CWorkspaceDoc.cpp" />
+    <ClCompile Include="CWorkspaceView.cpp" />
     <ClCompile Include="EFB-Sim.cpp" />
     <ClCompile Include="EFB-SimDoc.cpp" />
     <ClCompile Include="EFB-SimView.cpp" />
@@ -224,6 +234,7 @@
     <ResourceCompile Include="EFBSim.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\bmp00001.bmp" />
     <Image Include="res\EFB-Sim.ico" />
     <Image Include="res\EFB-SimDoc.ico" />
     <Image Include="res\IToolbar.bmp" />

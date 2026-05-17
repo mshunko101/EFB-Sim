@@ -10,4 +10,6 @@
 // Добавьте сюда заголовочные файлы для предварительной компиляции
 #include "framework.h"
 
+#include "EFB-SimView.h"
+#include "EFB-SimDoc.h"
 #endif //PCH_H
